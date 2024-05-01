@@ -1,0 +1,14 @@
+# Generic c stuff
+*.o
+*-protocol.c
+*-protocol.h
+.ccls-cache
+
+# For dwl
+dwl/dwl
+
+# For somebar
+bar/somebar/compile_commands.json
+bar/somebar/build
+bar/somebar/.cache
+bar/somebar/src/config.hpp

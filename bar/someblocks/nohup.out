@@ -1,0 +1,3 @@
+sh: -c: line 2: unexpected EOF while looking for matching `)'
+sh: -c: line 1: unexpected EOF while looking for matching `''
+sh: -c: line 1: unexpected EOF while looking for matching `''
