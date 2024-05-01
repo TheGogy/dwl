@@ -45,6 +45,17 @@ static const char *const autostart[] = {
         NULL /* terminate */
 };
 
+/* Env */
+static const Env envs[] = {
+	/* variable               value */
+	{ "XDG_CURRENT_DESKTOP",  "wlroots" },
+	{ "term",                 "foot" },
+	{ "editor",               "nvim" },
+	{ "GTK_THEME",            "tokyonight_gtk_theme" },
+	{ "MOZ_ENABLE_WAYLAND",   "1" },
+	{ "WAYLAND_DISPLAY",      "" },
+};
+
 /* rule(s) */
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor */
