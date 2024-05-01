@@ -13,7 +13,7 @@ constexpr int paddingY = 3;
 constexpr const char* font = "JetBrainsMono Nerd Font 13";
 
 constexpr ColorScheme colorInactive = {Color(0xbb, 0xbb, 0xbb), Color(0x00, 0x00, 0x00)};
-constexpr ColorScheme colorActive = {Color(0xbb, 0xbb, 0xbb), Color(0x36, 0x38, 0x36)};
+constexpr ColorScheme colorActive = {Color(0xd6, 0x5d, 0x0e), Color(0x00, 0x00, 0x00)};
 constexpr const char* termcmd[] = {"foot", nullptr};
 
 static std::vector<std::string> tagNames = {
