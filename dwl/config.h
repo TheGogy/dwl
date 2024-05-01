@@ -204,8 +204,6 @@ static const Key keys[] = {
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,            swapdir,    {.ui = 1} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,            swapdir,    {.ui = 2} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_J,            swapdir,    {.ui = 3} },
-
-
   { MODKEY,                    XKB_KEY_comma,        focusstack, {.i = +1} },
   { MODKEY,                    XKB_KEY_period,       focusstack, {.i = -1} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,      movestack,  {.i = +1} },
@@ -214,8 +212,8 @@ static const Key keys[] = {
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,         tagmon,     {.i = WLR_DIRECTION_RIGHT} },
   { MODKEY,                    XKB_KEY_b,            togglebar,  {0} },
   { MODKEY,                    XKB_KEY_g,            togglegaps, {0} },
-  { MODKEY,                    XKB_KEY_bracketleft,  focusmon, {.i = +1} },
-  { MODKEY,                    XKB_KEY_bracketright, focusmon, {.i = -1} },
+  { MODKEY,                    XKB_KEY_bracketleft,  focusmon,   {.i = +1} },
+  { MODKEY,                    XKB_KEY_bracketright, focusmon,   {.i = -1} },
 
   { MODKEY,                    XKB_KEY_Tab,          view,              {0} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_W,            killclient,        {0} },
