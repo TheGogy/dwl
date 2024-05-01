@@ -141,10 +141,13 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] =    { "foot"        , NULL };
-static const char *menucmd[] =    { "programmenu" , NULL };
-static const char *browsercmd[] = { "librewolf"   , NULL };
-static const char *discordcmd[] = { "vesktop"     , NULL };
+static const char *termcmd[] =       { "foot"        , NULL };
+static const char *menucmd[] =       { "programmenu" , NULL };
+static const char *browsercmd[] =    { "librewolf"   , NULL };
+static const char *browseraltcmd[] = { "floorp"      , NULL };
+static const char *discordcmd[] =    { "vesktop"     , NULL };
+static const char *vpncmd[] =        { "mullvad-vpn" , NULL };
+static const char *youtubecmd[] =    { "freetube"    , NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -156,7 +159,10 @@ static const Key keys[] = {
 
   /* Programs */
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          spawn,      {.v = browsercmd} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          spawn,      {.v = discordcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_I,          spawn,      {.v = browseraltcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_D,          spawn,      {.v = discordcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_M,          spawn,      {.v = vpncmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_R,          spawn,      {.v = youtubecmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,      SHCMD("grim -g\"$(slurp -d)\" - | swappy -f -") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,          spawn,      SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
 
