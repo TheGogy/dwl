@@ -1,0 +1,7 @@
+#!/bin/sh
+
+dwlb -ipc &
+
+killall someblocks
+someblocks -p | dwlb -status-stdin all &
+

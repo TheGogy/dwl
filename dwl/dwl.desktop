@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=dwl
 Comment=dwm for Wayland
-Exec=/usr/local/bin/dwl -s dwlb
+Exec=/usr/local/bin/dwl
 Type=Application
