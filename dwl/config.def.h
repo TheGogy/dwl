@@ -20,6 +20,7 @@ static const unsigned int cursorsize       = 24;
 /* bar */
 static const int showbar        = 1; /* 0 means no bar */
 static const int topbar         = 1; /* 0 means bottom bar */
+static const int user_bh        = 0; /* 0 means that dwl will calculate bar height, >= 1 means dwl will use user_bh as bar height */
 static const char *fonts[]      = {"monospace:size=10"};
 static const char *fontattrs    = "dpi=96";
 static pixman_color_t normbarfg = { 0xbbbb, 0xbbbb, 0xbbbb, 0xffff };

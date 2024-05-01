@@ -3144,7 +3144,7 @@ setup(void)
 		die("Could not load font");
 
 	lrpad = font->height;
-	bh = font->height + 2;
+	bh = user_bh ? user_bh : font->height + 2;
 
 	status_event_source = wl_event_loop_add_fd(wl_display_get_event_loop(dpy),
 		STDIN_FILENO, WL_EVENT_READABLE, status_in, NULL);
