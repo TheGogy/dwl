@@ -2,6 +2,5 @@
 
 dwlb -ipc &
 
-killall someblocks
-someblocks -p | dwlb -status-stdin all &
+sleep 2 && someblocks -p | dwlb -status-stdin all &
 
