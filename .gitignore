@@ -11,4 +11,3 @@ dwl/dwl
 bar/somebar/compile_commands.json
 bar/somebar/build
 bar/somebar/.cache
-bar/somebar/src/config.hpp
