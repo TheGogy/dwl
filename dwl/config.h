@@ -15,9 +15,22 @@ static const float focuscolor[]            = COLOR(0xA89984ff);
 static const float urgentcolor[]           = COLOR(0xef576bff);
 /* To conform the xdg-protocol, set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
+// static const char cursortheme[]            = NULL; /* theme from /usr/share/cursors/xorg-x11 */
+static const unsigned int cursorsize       = 24;
+
+/* bar */
+static const int showbar        = 1; /* 0 means no bar */
+static const int topbar         = 1; /* 0 means bottom bar */
+static const char *fonts[]      = {"Iosevka Nerd Font:size=13"};
+static const char *fontattrs    = "dpi=96";
+static pixman_color_t normbarfg = { 0xbbbb, 0xbbbb, 0xbbbb, 0xffff };
+static pixman_color_t normbarbg = { 0x0000, 0x0000, 0x0000, 0x0000 };
+static pixman_color_t selbarfg  = { 0xd6d6, 0x5d5d, 0x0e0e, 0xffff };
+static pixman_color_t selbarbg  = { 0x0000, 0x0000, 0x0000, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 #define TAGCOUNT (9)
+static char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 /* logging */
 static int log_level = WLR_ERROR;
@@ -25,7 +38,6 @@ static int log_level = WLR_ERROR;
 /* Autostart */
 static const char *const autostart[] = {
         "wbg", "/home/gogy/wallpapers/nagori.png", NULL,
-        "sh", "-c", "/home/gogy/tools/dwl/dwl/autostart", NULL,
         NULL /* terminate */
 };
 
@@ -135,45 +147,46 @@ static const Key keys[] = {
 	/* modifier                  key                 function        argument */
 
   /* Basic stuff */
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          spawn,             {.v = menucmd} },
-	{ MODKEY,                    XKB_KEY_Return,     spawn,             {.v = termcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          spawn,      {.v = menucmd} },
+	{ MODKEY,                    XKB_KEY_Return,     spawn,      {.v = termcmd} },
 
   /* Programs */
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          spawn,             {.v = browsercmd} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          spawn,             {.v = discordcmd} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,             SHCMD("grim -g\"$(slurp -d)\" - | swappy -f -") },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,          spawn,             SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          spawn,      {.v = browsercmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          spawn,      {.v = discordcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,      SHCMD("grim -g\"$(slurp -d)\" - | swappy -f -") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,          spawn,      SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
 
   /* Hotkeys */
-  { NULL,                XF86XK_AudioRaiseVolume,  spawn,             SHCMD("pamixer -i 5") },
-	{ NULL,                XF86XK_AudioLowerVolume,  spawn,             SHCMD("pamixer -d 5") },
-	{ NULL,                XF86XK_AudioMute,         spawn,             SHCMD("pamixer -t") },
-	{ NULL,                XF86XK_AudioMicMute,      spawn,             SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
-	{ NULL,                XF86XK_MonBrightnessUp,   spawn,             SHCMD("brightnessctl s 5%+") },
-	{ NULL,                XF86XK_MonBrightnessDown, spawn,             SHCMD("brightnessctl s 5%-") },
-	{ NULL,                XF86XK_AudioMedia,        spawn,             SHCMD("playerctl play-pause") },
-	{ NULL,                XF86XK_AudioPlay,         spawn,             SHCMD("playerctl play-pause") },
-	{ NULL,                XF86XK_AudioStop,         spawn,             SHCMD("playerctl stop") },
-	{ NULL,                XF86XK_AudioPrev,         spawn,             SHCMD("playerctl previous") },
-	{ NULL,                XF86XK_AudioNext,         spawn,             SHCMD("playerctl next") },
+  { NULL,                XF86XK_AudioRaiseVolume,  spawn,      SHCMD("pamixer -i 5") },
+	{ NULL,                XF86XK_AudioLowerVolume,  spawn,      SHCMD("pamixer -d 5") },
+	{ NULL,                XF86XK_AudioMute,         spawn,      SHCMD("pamixer -t") },
+	{ NULL,                XF86XK_AudioMicMute,      spawn,      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+	{ NULL,                XF86XK_MonBrightnessUp,   spawn,      SHCMD("brightnessctl s 5%+") },
+	{ NULL,                XF86XK_MonBrightnessDown, spawn,      SHCMD("brightnessctl s 5%-") },
+	{ NULL,                XF86XK_AudioMedia,        spawn,      SHCMD("playerctl play-pause") },
+	{ NULL,                XF86XK_AudioPlay,         spawn,      SHCMD("playerctl play-pause") },
+	{ NULL,                XF86XK_AudioStop,         spawn,      SHCMD("playerctl stop") },
+	{ NULL,                XF86XK_AudioPrev,         spawn,      SHCMD("playerctl previous") },
+	{ NULL,                XF86XK_AudioNext,         spawn,      SHCMD("playerctl next") },
 
   /* Movement */
-  { MODKEY,                    XKB_KEY_h,          focusdir,          {.ui = 0} },
-	{ MODKEY,                    XKB_KEY_l,          focusdir,          {.ui = 1} },
-	{ MODKEY,                    XKB_KEY_k,          focusdir,          {.ui = 2} },
-	{ MODKEY,                    XKB_KEY_j,          focusdir,          {.ui = 3} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_H,          swapdir,           {.ui = 0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,          swapdir,           {.ui = 1} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          swapdir,           {.ui = 2} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_J,          swapdir,           {.ui = 3} },
+  { MODKEY,                    XKB_KEY_h,          focusdir,   {.ui = 0} },
+	{ MODKEY,                    XKB_KEY_l,          focusdir,   {.ui = 1} },
+	{ MODKEY,                    XKB_KEY_k,          focusdir,   {.ui = 2} },
+	{ MODKEY,                    XKB_KEY_j,          focusdir,   {.ui = 3} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_H,          swapdir,    {.ui = 0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,          swapdir,    {.ui = 1} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          swapdir,    {.ui = 2} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_J,          swapdir,    {.ui = 3} },
 
 
-	{ MODKEY,                    XKB_KEY_comma,      focusstack,        {.i = +1} },
-	{ MODKEY,                    XKB_KEY_period,     focusstack,        {.i = -1} },
-  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    movestack,         {.i = +1} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       movestack,         {.i = -1} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,            {.i = WLR_DIRECTION_LEFT} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,            {.i = WLR_DIRECTION_RIGHT} },
+	{ MODKEY,                    XKB_KEY_comma,      focusstack, {.i = +1} },
+	{ MODKEY,                    XKB_KEY_period,     focusstack, {.i = -1} },
+  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    movestack,  {.i = +1} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       movestack,  {.i = -1} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,     {.i = WLR_DIRECTION_LEFT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,     {.i = WLR_DIRECTION_RIGHT} },
+	{ MODKEY,                    XKB_KEY_b,          togglebar,  {0} },
 
 
 	// { MODKEY,                    XKB_KEY_i,          incnmaster,        {.i = +1} },
@@ -221,7 +234,15 @@ static const Key keys[] = {
 };
 
 static const Button buttons[] = {
-	{ MODKEY, BTN_LEFT,   moveresize,     {.ui = CurMove} },
-	{ MODKEY, BTN_MIDDLE, togglefloating, {0} },
-	{ MODKEY, BTN_RIGHT,  moveresize,     {.ui = CurResize} },
+	{ ClkLtSymbol, 0,      BTN_LEFT,   setlayout,      {.v = &layouts[0]} },
+	{ ClkLtSymbol, 0,      BTN_RIGHT,  setlayout,      {.v = &layouts[2]} },
+	{ ClkTitle,    0,      BTN_MIDDLE, zoom,           {0} },
+	{ ClkStatus,   0,      BTN_MIDDLE, spawn,          {.v = termcmd} },
+	{ ClkClient,   MODKEY, BTN_LEFT,   moveresize,     {.ui = CurMove} },
+	{ ClkClient,   MODKEY, BTN_MIDDLE, togglefloating, {0} },
+	{ ClkClient,   MODKEY, BTN_RIGHT,  moveresize,     {.ui = CurResize} },
+	{ ClkTagBar,   0,      BTN_LEFT,   view,           {0} },
+	{ ClkTagBar,   0,      BTN_RIGHT,  toggleview,     {0} },
+	{ ClkTagBar,   MODKEY, BTN_LEFT,   tag,            {0} },
+	{ ClkTagBar,   MODKEY, BTN_RIGHT,  toggletag,      {0} },
 };

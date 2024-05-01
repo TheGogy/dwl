@@ -1,6 +1,0 @@
-#!/bin/sh
-
-dwlb -ipc &
-
-sleep 2 && someblocks -p | dwlb -status-stdin all &
-
