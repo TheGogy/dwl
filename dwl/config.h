@@ -183,9 +183,9 @@ static const Key keys[] = {
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,            spawn,      SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
 
   /* Hotkeys */
-  { NULL,                XF86XK_AudioRaiseVolume,    spawn,      SHCMD("pamixer -i 5 && pkill -SIGRTMIN+10 someblocks") },
-  { NULL,                XF86XK_AudioLowerVolume,    spawn,      SHCMD("pamixer -d 5 && pkill -SIGRTMIN+10 someblocks") },
-  { NULL,                XF86XK_AudioMute,           spawn,      SHCMD("pamixer -t") },
+  { NULL,                XF86XK_AudioRaiseVolume,    spawn,      SHCMD("pamixer -i 5 && kill -35 $(pidof someblocks)") },
+  { NULL,                XF86XK_AudioLowerVolume,    spawn,      SHCMD("pamixer -d 5 && kill -35 $(pidof someblocks)") },
+  { NULL,                XF86XK_AudioMute,           spawn,      SHCMD("pamixer -t && kill -35 $(pidof someblocks)") },
   { NULL,                XF86XK_AudioMicMute,        spawn,      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
   { NULL,                XF86XK_MonBrightnessUp,     spawn,      SHCMD("brightnessctl s 5%+") },
   { NULL,                XF86XK_MonBrightnessDown,   spawn,      SHCMD("brightnessctl s 5%-") },

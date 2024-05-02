@@ -1,16 +1,32 @@
 # dwl - dwm for Wayland
 
 This is my relatively simple DWL config for studying computer science at uni. I have included my own personal `config.h` as an example. Note that this is for a UK keyboard layout.
-You can find the original dwl config on [their Codeberg](https://codeberg.org/dwl/dwl).
+You can find the original dwl repo [here](https://codeberg.org/dwl/dwl).
 
 ## patches
 
-- Autostart: Automatically start programs at startup
-- Cursortheme: Set the cursor theme
-- Movestack: Switch the places of different windows along the stack
-- Naturalscrolltrackpad: Sets natural scrolling soecifically for trackpad
-- Output-power-management: Adds output power managemt protocol. Not sure what needs that protocol, but it's in there.
-- Swapandfocusdir: Adds ability to swap and focus in a given direction (up, down, left, right) relative to current window.
+#### Bar
+- Bar
+- Barheight
+- Hide vacant tags
+
+#### Input
+- Ipc
+- Natural scroll trackpad
+- Less simple touch input
+- Pointer gestures
+- Swap and focus dir
+- Movestack
+
+#### Decoration
+- Gaps
+- Cursortheme
+- Simple borders
+
+#### Misc
+- Autostart
+- Output-power-management
+- Setupenv
 
 Join us on our IRC channel: [#dwl on Libera Chat]  
 Or on our [Discord server].
