@@ -17,6 +17,7 @@ You can find the original dwl repo [here](https://codeberg.org/dwl/dwl).
 - Pointer gestures
 - Swap and focus dir
 - Movestack
+- Relative mouse resize
 
 #### Decoration
 - Gaps
