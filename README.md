@@ -4,8 +4,7 @@ Make sure to add the programs in [`bin`](./bin/) to your `/usr/local/bin`!
 
 ## Adding blocks
 
-To add blocks and update signals, add the required block to [`blocks.h`](./someblocks/blocks.h) and set the update signal to something unique. To then update it, you just need to run the following command:
-
+To add blocks and update signals, add the required block to [`blocks.h`](./someblocks/blocks.h) and set the update signal to something unique. To then update it, send this signal to the bar using `kill`.
 ```bash
-kill -<m> $(pidof someblocks) # where <m> is n + 34.
+kill -n $(pidof someblocks) # where <n> is the unique update signal + 34.
 ```
