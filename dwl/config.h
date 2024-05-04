@@ -55,7 +55,7 @@ static const Env envs[] = {
   { "term",                 "foot" },
   { "editor",               "nvim" },
   { "MOZ_ENABLE_WAYLAND",   "1" },
-  { "GTK_THEME",            "tokyonight-gtk-theme" },
+  { "GTK_THEME",            "Gruvbox-Material-Dark" },
   { "GTK_IM_MODULE",        "fcitx" },
   { "QT_IM_MODULE",         "fcitx" },
   { "XMODIFIERS",           "@im=fcitx" },

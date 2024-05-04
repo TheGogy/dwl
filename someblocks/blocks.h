@@ -7,6 +7,7 @@ static const Block blocks[] = {
   { "  ", "sensors | awk '/^Core 0/ {print $3 }' | cut -c2-", 30,  0  },
   { "  ", "pamixer --get-volume-human",                       30,  1  },
 	{ "  ", "iwgetid -r",                                       120, 0  },
+	// { "  ", "sb-network",                                       120, 0  },
   { "  ", "battery_status",                                   60,  0  },
 	{ "  ", "date '+%H:%M '",                                   60,  0  },
 	
