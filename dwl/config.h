@@ -41,7 +41,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-  "wbg", "/home/gogy/wallpapers/nagori.png", NULL,
+  "wbg", "/home/gogy/wallpapers/naboru-coffee.png", NULL,
   "fcitx5-remote", "-r", NULL,
   "fcitx5", "-d", "--replace", NULL,
   "fcitx5-remote", "-r", NULL,
