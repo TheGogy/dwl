@@ -183,17 +183,17 @@ static const Key keys[] = {
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,            spawn,      SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
 
   /* Hotkeys */
-  { NULL,                XF86XK_AudioRaiseVolume,    spawn,      SHCMD("pamixer -i 5 && kill -35 $(pidof someblocks)") },
-  { NULL,                XF86XK_AudioLowerVolume,    spawn,      SHCMD("pamixer -d 5 && kill -35 $(pidof someblocks)") },
-  { NULL,                XF86XK_AudioMute,           spawn,      SHCMD("pamixer -t && kill -35 $(pidof someblocks)") },
-  { NULL,                XF86XK_AudioMicMute,        spawn,      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
-  { NULL,                XF86XK_MonBrightnessUp,     spawn,      SHCMD("brightnessctl s 5%+") },
-  { NULL,                XF86XK_MonBrightnessDown,   spawn,      SHCMD("brightnessctl s 5%-") },
-  { NULL,                XF86XK_AudioMedia,          spawn,      SHCMD("playerctl play-pause") },
-  { NULL,                XF86XK_AudioPlay,           spawn,      SHCMD("playerctl play-pause") },
-  { NULL,                XF86XK_AudioStop,           spawn,      SHCMD("playerctl stop") },
-  { NULL,                XF86XK_AudioPrev,           spawn,      SHCMD("playerctl previous") },
-  { NULL,                XF86XK_AudioNext,           spawn,      SHCMD("playerctl next") },
+  { 0,                XF86XK_AudioRaiseVolume,       spawn,      SHCMD("pamixer -i 5 && kill -35 $(pidof someblocks)") },
+  { 0,                XF86XK_AudioLowerVolume,       spawn,      SHCMD("pamixer -d 5 && kill -35 $(pidof someblocks)") },
+  { 0,                XF86XK_AudioMute,              spawn,      SHCMD("pamixer -t && kill -35 $(pidof someblocks)") },
+  { 0,                XF86XK_AudioMicMute,           spawn,      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+  { 0,                XF86XK_MonBrightnessUp,        spawn,      SHCMD("brightnessctl s 5%+") },
+  { 0,                XF86XK_MonBrightnessDown,      spawn,      SHCMD("brightnessctl s 5%-") },
+  { 0,                XF86XK_AudioMedia,             spawn,      SHCMD("playerctl play-pause") },
+  { 0,                XF86XK_AudioPlay,              spawn,      SHCMD("playerctl play-pause") },
+  { 0,                XF86XK_AudioStop,              spawn,      SHCMD("playerctl stop") },
+  { 0,                XF86XK_AudioPrev,              spawn,      SHCMD("playerctl previous") },
+  { 0,                XF86XK_AudioNext,              spawn,      SHCMD("playerctl next") },
 
   /* Movement */
   { MODKEY,                    XKB_KEY_h,            focusdir,   {.ui = 0} },
