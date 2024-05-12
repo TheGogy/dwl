@@ -3,8 +3,20 @@
 capacity=$(cat /sys/class/power_supply/BAT1/capacity)
 status=$(cat /sys/class/power_supply/BAT1/status)
 
-if [ "$status" == "Charging" ]; then
-	echo "$capacity+"
+if [ $capacity -gt 80  ]; then
+  icon=" "
+elif [ $capacity -gt 60 ]; then
+  icon=" "
+elif [ $capacity -gt 40 ]; then
+  icon=" "
+elif [ $capacity -gt 20 ]; then
+  icon=" "
 else
-	echo "$capacity-"
+  icon=" "
+fi
+
+if [ "$status" == "Charging" ]; then
+	echo "$icon $capacity+"
+else
+	echo "$icon $capacity-"
 fi

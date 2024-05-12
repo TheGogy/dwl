@@ -8,7 +8,7 @@ static const Block blocks[] = {
   { "  ", "pamixer --get-volume-human",                       0,   1  },
 	{ "  ", "iwgetid -r",                                       120, 0  },
 	// { "  ", "sb-network",                                       120, 0  },
-  { "  ", "battery_status",                                   60,  0  },
+  { "", "battery_status",                                   60,  0  },
 	{ "  ", "date '+%H:%M '",                                   60,  0  },
 	
 	/* Updates whenever "pkill -SIGRTMIN+10 someblocks" is ran */
