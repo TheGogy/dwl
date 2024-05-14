@@ -41,7 +41,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-  "wbg", "/home/gogy/wallpapers/naboru-coffee.png", NULL,
+  "wbg", "/home/gogy/wallpapers/raining-in-osaka.jpg", NULL,
   "fcitx5-remote", "-r", NULL,
   "fcitx5", "-d", "--replace", NULL,
   "fcitx5-remote", "-r", NULL,
@@ -164,6 +164,7 @@ static const char *browseraltcmd[] = { "floorp"      , NULL };
 static const char *discordcmd[] =    { "vesktop"     , NULL };
 static const char *vpncmd[] =        { "mullvad-vpn" , NULL };
 static const char *youtubecmd[] =    { "freetube"    , NULL };
+static const char *logoutmenucmd[] = { "logoutmenu"  , NULL };
 
 static const Key keys[] = {
   /* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -179,6 +180,7 @@ static const Key keys[] = {
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_D,            spawn,      {.v = discordcmd} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_M,            spawn,      {.v = vpncmd} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_R,            spawn,      {.v = youtubecmd} },
+  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,            spawn,      {.v = logoutmenucmd} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,            spawn,      SHCMD("grim -g\"$(slurp -d)\" - | swappy -f -") },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,            spawn,      SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
 
