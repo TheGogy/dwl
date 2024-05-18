@@ -181,7 +181,8 @@ static const Key keys[] = {
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_M,            spawn,             {.v = vpncmd} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_R,            spawn,             {.v = youtubecmd} },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,            spawn,             {.v = logoutmenucmd} },
-  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,            spawn,             SHCMD("grim -g\"$(slurp -d)\" - | swappy -f -") },
+  // { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,            spawn,             SHCMD("grim -g\"$(slurp -d)\" - | swappy -f -") },
+  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,            spawn,             SHCMD("watershot -c") },
   { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,            spawn,             SHCMD("pkill wlsunset || wlsunset -T 5000 &") },
 
   /* Hotkeys */
