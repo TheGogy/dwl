@@ -12,7 +12,7 @@ static const int smartgaps                 = 0;  /* 1 means no outer gap when th
 static int gaps                            = 0;  /* 1 means gaps between windows are added */
 static const unsigned int gappx            = 10; /* gap pixel between windows */
 static const unsigned int borderpx         = 1;  /* border pixel of windows */
-static const float rootcolor[]             = COLOR(0x000000ff);
+static const float rootcolor[]             = COLOR(0x141617ff);
 static const float bordercolor[]           = COLOR(0x363836ff);
 static const float focuscolor[]            = COLOR(0xA89984ff);
 static const float urgentcolor[]           = COLOR(0xef576bff);
@@ -27,10 +27,10 @@ static const int topbar         = 1; /* 0 means bottom bar */
 static const int user_bh        = 30; /* 0 means that dwl will calculate bar height, >= 1 means dwl will use user_bh as bar height */
 static const char *fonts[]      = {"Iosevka Nerd Font:size=13"};
 static const char *fontattrs    = "dpi=96";
-static pixman_color_t normbarfg = { 0xbbbb, 0xbbbb, 0xbbbb, 0xffff };
-static pixman_color_t normbarbg = { 0x0000, 0x0000, 0x0000, 0xffff };
-static pixman_color_t selbarfg  = { 0xd6d6, 0x5d5d, 0x0e0e, 0xffff };
-static pixman_color_t selbarbg  = { 0x0000, 0x0000, 0x0000, 0xffff };
+static pixman_color_t normbarfg = { 0xd4d4, 0xbebe, 0x9696, 0xffff };
+static pixman_color_t normbarbg = { 0x1414, 0x1616, 0x1717, 0xffff };
+static pixman_color_t selbarfg  = { 0xe7e7, 0x8a8a, 0x4e4e, 0xffff };
+static pixman_color_t selbarbg  = { 0x2828, 0x2828, 0x2828, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 #define TAGCOUNT (9)

@@ -1,1 +1,14 @@
-bemenu-run -H 30 --fn 'Iosevka Nerd Font' --hp=8 --tb='#000000' --tf='#bbbbbb' --fb='#000000' --ff='#bbbbbb' --nb='#000000' --nf='#bbbbbb' --hb='#bbbbbb' --hf='#000000' --ab='#000000' --af='#bbbbbb' -p '>'
+#!/bin/sh
+
+text_bg='#141617'
+text_fg='#e78a4e'
+highlight_bg='#282828'
+highlight_fg='#e78a4e'
+
+bemenu-run -H 30 --fn 'Iosevka Nerd Font' --hp=8  --cw=2\
+           --tb="$text_bg"      --tf="$text_fg" \
+           --fb="$text_bg"      --ff="$text_fg" \
+           --ab="$text_bg"      --af="$text_fg" \
+           --nb="$text_bg"      --nf="$text_fg" \
+           --hb="$highlight_bg" --hf="$highlight_fg" \
+           -p '>'
