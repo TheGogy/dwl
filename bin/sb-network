@@ -1,7 +1,0 @@
-#!/bin/sh
-
-CONN=$(iwgetid -r)
-PRIVATE=$(ip -o -4 addr list wlp3s0 | awk '{print $4}' | cut -d/ -f1)
-PUBLIC=$(curl -s https://ipinfo.io/ip)
-
-echo ${CONN} "["${PRIVATE}"]-["${PUBLIC}"]"
