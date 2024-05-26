@@ -30,7 +30,7 @@ static const char *fontattrs    = "dpi=96";
 static pixman_color_t normbarfg = { 0xd4d4, 0xbebe, 0x9696, 0xffff };
 static pixman_color_t normbarbg = { 0x1414, 0x1616, 0x1717, 0xffff };
 static pixman_color_t selbarfg  = { 0xe7e7, 0x8a8a, 0x4e4e, 0xffff };
-static pixman_color_t selbarbg  = { 0x2828, 0x2828, 0x2828, 0xffff };
+static pixman_color_t selbarbg = { 0x1414, 0x1616, 0x1717, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 #define TAGCOUNT (9)
