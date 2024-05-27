@@ -50,17 +50,19 @@ static const char *const autostart[] = {
 
 /* Env */
 static const Env envs[] = {
-  /* variable               value */
-  { "XDG_CURRENT_DESKTOP",  "wlroots" },
-  { "term",                 "foot" },
-  { "editor",               "nvim" },
-  { "MOZ_ENABLE_WAYLAND",   "1" },
-  { "GTK_THEME",            "Gruvbox-Material-Dark" },
-  { "GTK_IM_MODULE",        "fcitx" },
-  { "QT_IM_MODULE",         "fcitx" },
-  { "XMODIFIERS",           "@im=fcitx" },
-  { "LIBVA_DRIVER_NAME",    "nvidia" },
-  { "VSPAU_DRIVER",         "nvidia" },
+  /* variable                   value */
+  { "XDG_CURRENT_DESKTOP",      "wlroots"               },
+  { "term",                     "foot"                  },
+  { "editor",                   "nvim"                  },
+  { "MOZ_ENABLE_WAYLAND",       "1"                     },
+  { "GTK_THEME",                "Gruvbox-Material-Dark" },
+  { "GTK_IM_MODULE",            "fcitx"                 },
+  { "QT_IM_MODULE",             "fcitx"                 },
+  { "XMODIFIERS",               "@im=fcitx"             },
+  { "LIBVA_DRIVER_NAME",        "nvidia"                },
+  { "VSPAU_DRIVER",             "nvidia"                },
+  { "GBM_BACKEND",              "nvidia-drm"            },
+  { "GLX_VENDOR_LIBRARY_NAME",  "nvidia"                },
 };
 
 /* rule(s) */
