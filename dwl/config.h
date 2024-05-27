@@ -59,6 +59,8 @@ static const Env envs[] = {
   { "GTK_IM_MODULE",        "fcitx" },
   { "QT_IM_MODULE",         "fcitx" },
   { "XMODIFIERS",           "@im=fcitx" },
+  { "LIBVA_DRIVER_NAME",    "nvidia" },
+  { "VSPAU_DRIVER",         "nvidia" },
 };
 
 /* rule(s) */
